@@ -1,9 +1,18 @@
-import React from "react";
-import { View, Text } from "react-native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import React, { FC } from "react";
+import { View } from "react-native";
+import Button from "ui/components/inputs/Button/Button";
+import { RootStackParamList } from "ui/router/Router";
 
-export default function Index() {
+type NavigationProp = StackNavigationProp<RootStackParamList, "Index">;
+
+interface IndexProps {
+  navigation: NavigationProp;
+}
+
+const Index: FC<IndexProps> = ({ navigation }) => {
   const handlePress = () => {
-    console.log("hello World");
+    navigation.navigate("EncontrarDiaristas");
   };
 
   return (
@@ -13,4 +22,5 @@ export default function Index() {
       </Button>
     </View>
   );
-}
+};
+export default Index;
